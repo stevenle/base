@@ -15,3 +15,6 @@ deployments:
   github:
     destination: local
     out_dir: ../stevenle.github.io/
+  travis:
+    destination: local
+    out_dir: stevenle.github.io/
