@@ -3,8 +3,11 @@
 set -ex
 
 if [ ! -d "$HOME/pygrow" ]; then
-  git clone https://github.com/grow/pygrow.git $HOME/pygrow
+  git -b develop --single-branch clone \
+    https://github.com/grow/pygrow.git \
+    $HOME/pygrow
 else
+  cd $HOME/pygrow
   git pull
 fi
 
