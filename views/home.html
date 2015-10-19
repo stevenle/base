@@ -365,7 +365,7 @@ table tr {
 <div class="grid-2-at-medium pad-bottom-small">
 <div class="item">
 <h4>@mixin breakpoint($selector)</h4>
-<pre class="space-bottom-base"><code>.foo {
+<pre class="space-bottom-base"><code class="prettyprint">.foo {
   color: red;
 
   @include breakpoint($breakpoint-small) {
@@ -376,7 +376,7 @@ table tr {
 </div>
 <div class="item">
 <h4>Output</h4>
-<pre><code>.foo {
+<pre><code class="prettyprint">.foo {
   color: red;
 }
 @media (min-width: 480px) {
@@ -391,14 +391,14 @@ table tr {
 <div class="grid-2-at-medium">
 <div class="item">
 <h4>@mixin breakpoint-rule($selector)</h4>
-<pre class="space-bottom-base"><code>@include breakpoint-rule(".foo") {
+<pre class="space-bottom-base"><code class="prettyprint">@include breakpoint-rule(".foo") {
   color: red;
 }
 </code></pre>
 </div>
 <div class="item">
 <h4>Output</h4>
-<pre><code>.foo {
+<pre><code class="prettyprint">.foo {
   color: red;
 }
 @media (min-width: 374px) {
@@ -421,6 +421,7 @@ table tr {
 
 </div>
 
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script src="/static/thirdparty/smooth_scroll/js/smooth-scroll.min.js"></script>
 <script>
 (function() {
