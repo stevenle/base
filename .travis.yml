@@ -7,7 +7,6 @@ branches:
 cache:
   directories:
   - $HOME/.cache/pip
-  - $HOME/pygrow
   - $HOME/virtualenv
 env:
   global:

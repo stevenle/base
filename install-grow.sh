@@ -2,13 +2,11 @@
 
 set -ex
 
-if [ ! -d "$HOME/pygrow" ]; then
+if which programname >/dev/null; then
+  echo "Using cached grow binary"
+else
   git -b develop --single-branch clone \
     https://github.com/grow/pygrow.git \
     $HOME/pygrow
-else
-  cd $HOME/pygrow
-  git pull
+  pip install $HOME/pygrow
 fi
-
-pip install $HOME/pygrow
