@@ -1,0 +1,25 @@
+{
+  "name": "base",
+  "description": "base",
+  "main": "dist/base.css",
+  "authors": [
+    {
+      "name": "Steven Le",
+      "email": "stevenle08@gmail.com",
+      "website": "stevenle.co"
+    }
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://stevenle.github.io/base/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "smooth_scroll": "git://github.com/cferdinandi/smooth-scroll.git#~7.1.1"
+  }
+}

@@ -1,0 +1,17 @@
+grow_version: ">=0.0.55"
+title: Base
+description: Base CSS and JS
+root: /base/
+
+static_dirs:
+- static_dir: /dist/
+  serve_at: /static/css/
+- static_dir: /static/images/
+  serve_at: /static/images/
+- static_dir: /bower_components/smooth_scroll/dist/
+  serve_at: /static/thirdparty/smooth_scroll/
+
+deployments:
+  github:
+    destination: local
+    out_dir: ../stevenle.github.io/

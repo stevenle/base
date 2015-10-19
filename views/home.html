@@ -1,0 +1,430 @@
+{% extends "/views/_base.html" %}
+
+{% block head %}
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" type="text/css">
+<style>
+body {
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 22px;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 400;
+}
+
+#subnav {
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #dedede;
+  border-top: 1px solid #dedede;
+  padding: 20px 0;
+}
+
+#subnav a,
+#subnav a:visited {
+  color: #2996cc;
+  font-size: 13px;
+  font-weight: 400;
+  margin-right: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#subnav a:hover {
+  color: #2586b7;
+}
+
+#grid .content {
+  padding: 60px 0;
+}
+
+.title {
+  font-weight: 400;
+}
+
+.demo {
+  padding: 20px 0;
+}
+.demo h4 {
+  font-weight: 300;
+}
+.demo-box {
+  background-color: #f5f5f5;
+  border: 1px solid #dedede;
+  border-radius: 3px;
+  height: 20px;
+  width: 100%;
+}
+.demo-box.short {
+  height: 10px;
+}
+.demo-box.tall {
+  height: 50px;
+}
+
+.icon {
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50px;
+}
+.icon.placeholder {
+  border: 2px solid #dedede;
+  border-radius: 50%;
+}
+
+.button {
+  background-color: #2996cc;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  padding: 10px 40px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+.button:hover {
+  background-color: #2586b7;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #dedede;
+}
+
+code {
+  background-color: #f5f5f5;
+  border: 1px solid #dedede;
+  font-family: monospace;
+  padding: 2px 4px;
+  white-space: nowrap;
+}
+
+pre code {
+  border-radius: 3px;
+  display: block;
+  padding: 10px;
+  white-space: pre-wrap;
+}
+
+table {
+  font-weight: 300;
+  width: 100%;
+}
+table thead th {
+  font-weight: 400;
+}
+table tbody td {
+  font-weight: 300;
+}
+table td,
+table th {
+  padding: 10px 0;
+}
+table tr {
+  border-bottom: 1px solid #dedede;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="main">
+
+<section id="overview">
+  <div class="content pad-vert-medium">
+    <h1>{{doc.title}}</h1>
+    <p></p>
+      Base is a modern framework designed to reduce the amount of time writing
+      CSS and JS, allowing more time for developers to produce great content.
+    </p>
+
+    <div class="cta">
+      <a class="button" href="https://github.com/stevenle/base">View on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<section id="subnav">
+  <div class="content">
+    <a class="smoothscroll" href="#overview">Overview</a>
+    <a class="smoothscroll" href="#grid">Grid</a>
+    <a class="smoothscroll" href="#breakpoints">Breakpoints</a>
+  </div>
+</section>
+
+<section id="grid">
+  <div class="content pad-vert-medium border-bottom">
+    <h2>Grid</h2>
+    <p>
+      At the heart of every great framework is a grid system. Base is no
+      different.
+    </p>
+
+    <div class="pad-top-small pad-bottom-medium">
+      <div class="grid-2 grid-4-at-medium">
+        <div class="text-center">
+          <div class="icon placeholder space-bottom-base">
+          </div>
+          <div class="title">Based on flexbox</div>
+          <div class="desc">
+            A modern layout system that uses the latest and greatest of browser
+            technologies.
+          </div>
+        </div>
+        <div class="text-center">
+          <div class="icon placeholder space-bottom-base">
+          </div>
+          <div class="title">Mobile first</div>
+          <div class="desc">
+            Start by defining a grid size for mobile and enhance for different
+            screen widths using responsive suffixes.
+          </div>
+        </div>
+        <div class="text-center">
+          <div class="icon placeholder space-bottom-base">
+          </div>
+          <div class="title">Written in SASS / SCSS</div>
+          <div class="desc">
+            Integrate with your existing SCSS, extend and modify as needed.
+          </div>
+        </div>
+        <div class="text-center">
+          <div class="icon placeholder space-bottom-base">
+          </div>
+          <div class="title">Powerful and easy to learn</div>
+          <div class="desc">
+            Designed to be similar to other frameworks, so it's easy to learn
+            but is as powerful as you need it to be.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <h3>12 layout classes</h3>
+      <p>
+        The grid system is based on a 12-column, fluid-width layout. Widths of
+        each column can be defined using fractional names (e.g.
+        <code>one-half</code>, <code>two-thirds</code>, etc.).
+      </p>
+
+      {% set sizes = [
+        'one-twelfth',
+        'one-sixth',
+        'one-fourth',
+        'one-third',
+        'five-twelfths',
+        'one-half',
+        'seven-twelfths',
+        'two-thirds',
+        'three-fourths',
+        'five-sixths',
+        'eleven-twelfths',
+        'one-whole',
+      ] %}
+      {% for size in sizes %}
+      <div class="grid pad-vert-base">
+        <div class="{{size}}">
+          <div class="demo-box gap-bottom-base"></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="demo">
+      <h3>Equal-width columns</h3>
+      <p>
+        You can define the number of columns using the <code>.grid-N</code> CSS
+        classes, where <code>N</code> is the number of columns.
+      </p>
+      {% for i in range(2, 5) %}
+      <div class="grid-{{i}} pad-vert-base">
+        {% for _ in range(i) %}
+        <div class="item"><div class="demo-box"></div></div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="demo">
+      <h3>Responsive suffixes</h3>
+      <p>
+        Change the number of columns at different screen widths using responsive
+        suffixes, i.e. adding <code>-at-SCREENSIZE</code>, where
+        <code>SCREENSIZE</code> is one of: <code>extra-small</code>,
+        <code>small</code>, <code>medium</code>, <code>large</code>, or
+        <code>extra-large</code>.
+      </p>
+      <div class="grid-1 grid-2-at-small grid-4-at-medium">
+        {% for _ in range(4) %}
+        <div class="item"><div class="demo-box"></div></div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="demo">
+      <h3>Vertical positioning</h3>
+      <p>
+        By default, columns are vertically positioned at the top, but the
+        positioning of each column can be changed by using valign-POSITION,
+        where POSITION is one of: middle, bottom.
+      </p>
+
+      <div class="grid-3 pad-vert-base">
+        <div class="item"><div class="demo-box"></div></div>
+        <div class="item"><div class="demo-box tall"></div></div>
+        <div class="item"><div class="demo-box"></div></div>
+      </div>
+      <div class="grid-3 pad-vert-base">
+        <div class="item valign-middle"><div class="demo-box"></div></div>
+        <div class="item valign-middle"><div class="demo-box tall"></div></div>
+        <div class="item valign-middle"><div class="demo-box"></div></div>
+      </div>
+      <div class="grid-3 pad-vert-base">
+        <div class="item valign-bottom"><div class="demo-box"></div></div>
+        <div class="item valign-bottom"><div class="demo-box tall"></div></div>
+        <div class="item valign-bottom"><div class="demo-box"></div></div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <h3>Content alignment</h3>
+      <p>
+        If the content doesn't fill the full width of the 12-column layout, the
+        columns can be aligned in different ways.
+      </p>
+
+      <div class="grid pad-vert-base">
+        <div class="one-fourth"><div class="demo-box"></div></div>
+        <div class="one-fourth"><div class="demo-box"></div></div>
+      </div>
+      <div class="grid pad-vert-base align-center">
+        <div class="one-fourth"><div class="demo-box"></div></div>
+        <div class="one-fourth"><div class="demo-box"></div></div>
+      </div>
+      <div class="grid pad-vert-base align-right">
+        <div class="one-fourth"><div class="demo-box"></div></div>
+        <div class="one-fourth"><div class="demo-box"></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="breakpoints">
+  <div class="content pad-vert-medium border-bottom">
+    <h2>Breakpoints</h2>
+    <p>
+      Base's <code>.content</code> container uses a fixed width at different
+      breakpoints so that the content size is predictable.
+    </p>
+
+    <h3>Widths</h3>
+    {% set data = [
+      {'size': 'extra-small', 'viewport_width': '>= 374px', 'content_width': '324px'},
+      {'size': 'small', 'viewport_width': '>= 480px', 'content_width': '424px'},
+      {'size': 'medium', 'viewport_width': '>= 718px', 'content_width': '680px'},
+      {'size': 'large', 'viewport_width': '>= 1024px', 'content_width': '868px'},
+      {'size': 'extra-large', 'viewport_width': '>= 1292px', 'content_width': '1016px'},
+    ] %}
+
+    <div class="pad-bottom-medium">
+      <table>
+        <thead>
+          <tr>
+            <th>Size</th>
+            <th>Viewport width</th>
+            <th>Content width</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in data %}
+          <tr>
+            <td>{{row.size}}</td>
+            <td>{{row.viewport_width}}</td>
+            <td>{{row.content_width}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <h3>SASS / SCSS helpers</h3>
+    <p>
+      Base comes with a few mixins to help generate mobile-first, responsive
+      rules at different breakpoints.
+    </p>
+
+<div class="grid-2-at-medium pad-bottom-small">
+<div class="item">
+<h4>@mixin breakpoint($selector)</h4>
+<pre class="space-bottom-base"><code>.foo {
+  color: red;
+
+  @include breakpoint($breakpoint-small) {
+    color: blue;
+  }
+}
+</code></pre>
+</div>
+<div class="item">
+<h4>Compiles to:</h4>
+<pre><code>.foo {
+  color: red;
+}
+@media (min-width: 480px) {
+  .foo {
+    color: blue;
+  }
+}
+</code></pre>
+</div>
+</div>
+
+<div class="grid-2-at-medium">
+<div class="item">
+<h4>@mixin breakpoint-rule($selector)</h4>
+<pre class="space-bottom-base"><code>@include breakpoint-rule(".foo") {
+  color: red;
+}
+</code></pre>
+</div>
+<div class="item">
+<h4>Compiles to:</h4>
+<pre><code>.foo {
+  color: red;
+}
+@media (min-width: 374px) {
+  .foo-at-extra-small {
+    color: red;
+  }
+}
+@media (min-width: 480px) {
+  .foo-at-small {
+    color: red;
+  }
+}
+/* etc. */
+</code></pre>
+</div>
+</div>
+
+  </div>
+</section>
+
+</div>
+
+<script src="/static/thirdparty/smooth_scroll/js/smooth-scroll.min.js"></script>
+<script>
+(function() {
+  smoothScroll.init({
+    'selector': '.smoothscroll',
+    'updateURL': false
+  });
+})();
+</script>
+{% endblock %}

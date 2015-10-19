@@ -1,0 +1,24 @@
+{
+  "name": "base",
+  "version": "0.0.1",
+  "description": "base",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stevenle/base"
+  },
+  "devDependencies": {
+    "bower": "^1.6.3",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.4",
+    "run-sequence": "^1.1.4"
+  },
+  "author": {
+    "name": "Steven Le",
+    "email": "stevenle08@gmail.com",
+    "website": "stevenle.co"
+  },
+  "license": "Apache-2.0"
+}
