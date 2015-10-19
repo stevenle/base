@@ -38,11 +38,21 @@
     justify-content: flex-end;
   }
 
+  &.valign-middle {
+    > * {
+      align-self: center;
+    }
+  }
   .valign-middle {
-    align-self: center;
+    align-self: center !important;
+  }
+  &.valign-bottom {
+    > * {
+      align-self: flex-end;
+    }
   }
   .valign-bottom {
-    align-self: flex-end;
+    align-self: flex-end !important;
   }
 
   &:before,
