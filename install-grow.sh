@@ -2,7 +2,7 @@
 
 set -ex
 
-if which programname >/dev/null; then
+if which grow >/dev/null; then
   echo "Using cached grow binary"
 else
   git clone -b develop --single-branch \
