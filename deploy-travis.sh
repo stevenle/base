@@ -2,10 +2,11 @@
 
 set -ex
 
-grow deploy -f travis
-cd stevenle.github.io
 git config user.name "Travis CI"
 git config user.email "stevenle08@gmail.com"
+
+grow deploy -f travis
+cd stevenle.github.io
 
 if [[ -z $(git status -s) ]]; then
   echo "No changes to commit"
