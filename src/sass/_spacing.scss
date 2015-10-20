@@ -15,11 +15,13 @@
 $spacing-base: 10px;
 $spacing-small: 3 * $spacing-base;
 $spacing-medium: 6 * $spacing-base;
+$spacing-large: 10 * $spacing-base;
 
 $spacing-map: (
   base: $spacing-base,
   small: $spacing-small,
   medium: $spacing-medium,
+  large: $spacing-large,
 );
 
 @each $size, $space in $spacing-map {

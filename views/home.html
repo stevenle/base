@@ -17,6 +17,24 @@ h4 {
   font-weight: 400;
 }
 
+#overview {
+  background-color: #5fb7e4;
+  background-image: radial-gradient(circle, #5fb7e4, #4ca4d2);
+  color: #fff;
+}
+#overview h1 {
+  font-size: 20px;
+  line-height: 32px;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+#overview h2 {
+  font-size: 38px;
+  font-weight: 300;
+  line-height: 40px;
+  max-width: 400px;
+}
+
 #subnav {
   background-color: #f5f5f5;
   background-image: radial-gradient(#fcfcfc, #f5f5f5);
@@ -88,6 +106,7 @@ h4 {
   font-weight: 400;
   padding: 10px 40px;
   text-decoration: none;
+  text-transform: uppercase;
   transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 .button:hover {
@@ -139,13 +158,9 @@ table tr {
 <div class="main">
 
 <section id="overview">
-  <div class="content pad-vert-medium">
+  <div class="content pad-vert-large">
     <h1>{{doc.title}}</h1>
-    <p></p>
-      Base is a modern framework designed to reduce the amount of time writing
-      CSS and JS, allowing more time for developers to produce great content.
-    </p>
-
+    <h2>A modern framework for a modern web.</h2>
     <div class="cta">
       <a class="button" href="https://github.com/stevenle/base">View on GitHub</a>
     </div>
