@@ -35,7 +35,7 @@ h4 {
   max-width: 400px;
 }
 
-#subnav {
+.subnav {
   background-color: #f5f5f5;
   background-image: radial-gradient(#fcfcfc, #f5f5f5);
   border-bottom: 1px solid #dedede;
@@ -43,8 +43,8 @@ h4 {
   padding: 15px 0;
 }
 
-#subnav a,
-#subnav a:visited {
+.subnav a,
+.subnav a:visited {
   color: #2996cc;
   font-size: 13px;
   font-weight: 400;
@@ -53,8 +53,19 @@ h4 {
   text-transform: uppercase;
 }
 
-#subnav a:hover {
+.subnav a:hover {
   color: #2586b7;
+}
+
+.subnav.scrollfix {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+.subnav.scrollfix.active {
+  display: block;
 }
 
 #grid .content {
@@ -168,7 +179,15 @@ table tr {
   </div>
 </section>
 
-<section id="subnav">
+<section id="subnav" class="subnav">
+  <div class="content">
+    <a class="smoothscroll" href="#overview">Overview</a>
+    <a class="smoothscroll" href="#grid">Grid</a>
+    <a class="smoothscroll" href="#breakpoints">Breakpoints</a>
+  </div>
+</section>
+
+<section class="subnav scrollfix">
   <div class="content">
     <a class="smoothscroll" href="#overview">Overview</a>
     <a class="smoothscroll" href="#grid">Grid</a>
@@ -444,9 +463,28 @@ table tr {
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script src="/static/thirdparty/smooth_scroll/js/smooth-scroll.min.js"></script>
 <script>
+var base = window.base || {};
+base.scrollfix = {};
+base.scrollfix.scrollEl_ = null;
+base.scrollfix.fixedEl_ = null;
+base.scrollfix.init = function(scrollEl, fixedEl) {
+  base.scrollfix.scrollEl_ = scrollEl;
+  base.scrollfix.fixedEl_ = fixedEl;
+  document.body.onscroll = base.scrollfix.onScroll;
+};
+base.scrollfix.onScroll = function(e) {
+  var top = (window.pageYOffset || document.scrollTop) - (document.clientTop || 0);
+  base.scrollfix.fixedEl_.classList.toggle(
+      'active', top > base.scrollfix.scrollEl_.offsetTop);
+};
+
 (function() {
+  var subnav = document.getElementById('subnav');
+  var fixedSubnav = document.querySelector('.subnav.scrollfix');
+  base.scrollfix.init(subnav, fixedSubnav);
   smoothScroll.init({
     'selector': '.smoothscroll',
+    'selectorHeader': '.scrollfix',
     'updateURL': false
   });
 })();
