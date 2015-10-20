@@ -471,6 +471,7 @@ base.scrollfix.init = function(scrollEl, fixedEl) {
   base.scrollfix.scrollEl_ = scrollEl;
   base.scrollfix.fixedEl_ = fixedEl;
   document.body.onscroll = base.scrollfix.onScroll;
+  base.scrollfix.onScroll();
 };
 base.scrollfix.onScroll = function(e) {
   var top = (window.pageYOffset || document.scrollTop) - (document.clientTop || 0);

@@ -5,6 +5,12 @@
 <meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport">
 <link rel="shortcut icon" href="/static/images/favicon.ico">
 <link rel="stylesheet" media="screen" href="/static/css/base.css">
+<script>
+if (window.location.host.substr(-10) == '.github.io'
+    && window.location.protocol != 'https:') {
+  window.location.protocol = 'https:';
+}
+</script>
 {% block head %}{% endblock %}
 <body>
 {% block body %}{% endblock %}
