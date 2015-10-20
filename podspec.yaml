@@ -4,8 +4,10 @@ description: Base CSS and JS
 root: /base/
 
 static_dirs:
-- static_dir: /dist/
+- static_dir: /dist/css/
   serve_at: /static/css/
+- static_dir: /dist/js/
+  serve_at: /static/js/
 - static_dir: /static/images/
   serve_at: /static/images/
 - static_dir: /bower_components/smooth_scroll/dist/

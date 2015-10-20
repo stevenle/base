@@ -19,7 +19,8 @@
     "test",
     "tests"
   ],
-  "dependencies": {
+  "devDependencies": {
+    "closure-compiler": "http://dl.google.com/closure-compiler/compiler-20150315.zip",
     "smooth_scroll": "git://github.com/cferdinandi/smooth-scroll.git#~7.1.1"
   }
 }

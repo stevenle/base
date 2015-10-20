@@ -18,6 +18,7 @@
  */
 
 var autoprefixer = require('gulp-autoprefixer');
+var closureCompiler = require('gulp-closure-compiler');
 var gulp = require('gulp');
 var plumber = require('gulp-plumber');
 var rename = require('gulp-rename');
@@ -37,18 +38,46 @@ var SASS_OPTIONS = {
   'outputStyle': 'compressed'
 };
 
-gulp.task('buildcss', function() {
+gulp.task('basecss', function() {
   return gulp.src('./src/sass/base.scss')
       .pipe(plumber())
       .pipe(sass(SASS_OPTIONS))
       .pipe(autoprefixer(AUTOPREFIXER_OPTIONS))
-      .pipe(rename('base.css'))
-      .pipe(gulp.dest('./dist/'));
+      .pipe(rename('base.min.css'))
+      .pipe(gulp.dest('./dist/css/'));
+});
+
+gulp.task('basejs', function() {
+  return gulp.src('./src/js/**.js')
+      .pipe(closureCompiler({
+        compilerPath: './bower_components/closure-compiler/compiler.jar',
+        compilerFlags: {
+          compilation_level: 'SIMPLE_OPTIMIZATIONS',
+          warning_level: 'VERBOSE'
+        },
+        fileName: 'base.min.js',
+        js: [
+            './src/js/**.js',
+            '!**_test.js'
+        ],
+        tieredCompilation: true
+      }))
+      .pipe(gulp.dest('./dist/js/'));
+});
+
+gulp.task('sitecss', function() {
+  return gulp.src('./src/sass/site.scss')
+      .pipe(plumber())
+      .pipe(sass(SASS_OPTIONS))
+      .pipe(autoprefixer(AUTOPREFIXER_OPTIONS))
+      .pipe(rename('site.min.css'))
+      .pipe(gulp.dest('./dist/css/'));
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['./src/sass/*.scss'], ['buildcss']);
+  gulp.watch(['./src/js/*.js'], ['basejs']);
+  gulp.watch(['./src/sass/*.scss'], ['basecss', 'sitecss']);
 });
 
-gulp.task('build', ['buildcss']);
-gulp.task('default', ['buildcss', 'watch']);
+gulp.task('build', ['basecss', 'basejs', 'sitecss']);
+gulp.task('default', ['basecss', 'basejs', 'sitecss', 'watch']);
