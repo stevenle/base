@@ -2,8 +2,8 @@
 
 set -ex
 
-git config user.name "Travis CI"
-git config user.email "stevenle08@gmail.com"
+git config --global user.name "Travis CI"
+git config --global user.email "stevenle08@gmail.com"
 
 grow deploy -f travis
 cd stevenle.github.io
