@@ -71,7 +71,7 @@
 @for $i from 1 through 4 {
   $selector: ".grid-#{$i}";
   $width: 100% / $i;
-  @include breakpoint-rule($selector) {
+  @include breakpoint-rule($selector, $breakpoints: $all-breakpoints) {
     > * {
       width: $width;
     }
@@ -95,7 +95,7 @@ $grid-sizes: (
 @for $i from 12 through 1 {
   $selector: nth($grid-sizes, $i);
   $width: $i / 12 * 100%;
-  @include breakpoint-rule($selector) {
+  @include breakpoint-rule($selector, $breakpoints: $all-breakpoints) {
     width: $width;
   }
 }

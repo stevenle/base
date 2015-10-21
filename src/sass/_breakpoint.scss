@@ -27,17 +27,20 @@ $breakpoint-map: (
   extra-large: $breakpoint-extra-large,
 );
 
+$main-breakpoints: (small, medium, large);
+$all-breakpoints: (extra-small, small, medium, large, extra-large);
+
 @mixin breakpoint($width) {
   @media (min-width: $width) {
     @content;
   }
 }
 
-@mixin breakpoint-rule($selector) {
+@mixin breakpoint-rule($selector, $breakpoints: $main-breakpoints) {
   #{$selector} {
     @content;
   }
-  @each $size in extra-small, small, medium, large, extra-large {
+  @each $size in $breakpoints {
     #{$selector}-at-#{$size} {
       $width: map-get($breakpoint-map, $size);
       @include breakpoint($width) {

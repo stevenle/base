@@ -23,6 +23,7 @@
     <a class="smoothscroll" href="#overview">Overview</a>
     <a class="smoothscroll" href="#grid">Grid</a>
     <a class="smoothscroll" href="#breakpoints">Breakpoints</a>
+    <a class="smoothscroll" href="#utility">Utility</a>
   </div>
 </section>
 
@@ -31,6 +32,7 @@
     <a class="smoothscroll" href="#overview">Overview</a>
     <a class="smoothscroll" href="#grid">Grid</a>
     <a class="smoothscroll" href="#breakpoints">Breakpoints</a>
+    <a class="smoothscroll" href="#utility">Utility</a>
   </div>
 </section>
 
@@ -296,6 +298,52 @@
 
   </div>
 </section>
+
+<section id="utility">
+  <div class="content pad-vert-medium border-bottom">
+    <h2>Utility classes</h2>
+    <p>
+      Base contains a bunch of utility classes to help style elements without
+      having to write arbitrary CSS rules. For example, hide elements by adding
+      <code>class="hide"</code>. Utility classes contain responsive variants as
+      well, so you can hide an element only on small screens by using
+      <code>class="hide show-at-medium"</code>.
+    </p>
+
+    {% set util_classes = [
+      {'class': 'hide', 'css_equiv': 'display: none'},
+      {'class': 'show', 'css_equiv': 'display: block'},
+      {'class': 'display-block', 'css_equiv': 'display: block'},
+      {'class': 'display-inline', 'css_equiv': 'display: inline'},
+      {'class': 'display-inline-block', 'css_equiv': 'display: inline-block'},
+      {'class': 'text-align-center', 'css_equiv': 'text-align: center'},
+      {'class': 'text-align-left', 'css_equiv': 'text-align: left'},
+      {'class': 'text-align-right', 'css_equiv': 'text-align: right'},
+      {'class': 'text-transform-capitalize', 'css_equiv': 'text-transform: capitalize'},
+      {'class': 'text-transform-lowercase', 'css_equiv': 'text-transform: lowercase'},
+      {'class': 'text-transform-none', 'css_equiv': 'text-transform: none'},
+      {'class': 'text-transform-uppercase', 'css_equiv': 'text-transform: uppercase'},
+    ] %}
+
+    <table>
+      <thead>
+        <tr>
+          <th>Utility class</th>
+          <th>CSS equivalent</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for util in util_classes %}
+        <tr>
+          <td><code>{{util.class}}</code></td>
+          <td><code>{{util.css_equiv}}</code></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </div>
+</div>
 
 </div>
 
