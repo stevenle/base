@@ -196,11 +196,30 @@
     </div>
 
     <div class="demo">
+      <h3>Content alignment (cont.)</h3>
+      <p>
+        The remaining space can also be distributed around or between the
+        columns using <code>align-space-around</code> or
+        <code>align-space-between</code>.
+      </p>
+
+      <div class="grid pad-vert-base align-space-around">
+        <div class="one-fourth"><div class="demo-box"></div></div>
+        <div class="one-fourth"><div class="demo-box"></div></div>
+        <div class="one-fourth"><div class="demo-box"></div></div>
+      </div>
+      <div class="grid pad-vert-base align-space-between">
+        <div class="one-fourth"><div class="demo-box"></div></div>
+        <div class="one-fourth"><div class="demo-box"></div></div>
+        <div class="one-fourth"><div class="demo-box"></div></div>
+      </div>
+    </div>
+
+    <div class="demo">
       <h3>Flushed content</h3>
       <p>
-        Sometimes you want your columns flushed up with one another, without
-        any spacing between them. This can be achieved using the
-        <code>grid-flushed</code> class.
+        To have the grid columns flushed with one another without
+        any spacing between them, use the <code>grid-flushed</code> class.
       </p>
 
       <div class="grid grid-flushed">

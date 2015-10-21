@@ -37,6 +37,12 @@
   &.align-right {
     justify-content: flex-end;
   }
+  &.align-space-around {
+    justify-content: space-around;
+  }
+  &.align-space-between {
+    justify-content: space-between;
+  }
 
   &.valign-middle {
     > * {
