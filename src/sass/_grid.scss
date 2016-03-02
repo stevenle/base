@@ -105,10 +105,12 @@ $grid-sizes: (
   ".eleven-twelfths",
   ".one-whole",
 );
-@for $i from 12 through 1 {
-  $selector: nth($grid-sizes, $i);
-  $width: $i / 12 * 100%;
-  @include breakpoint-rule($selector, $breakpoints: $all-breakpoints) {
-    width: $width;
+@each $bp in $all-breakpoints {
+  @for $i from 12 through 1 {
+    $selector: nth($grid-sizes, $i);
+    $width: $i / 12 * 100%;
+    @include breakpoint-rule($selector, $breakpoints: ($bp)) {
+      width: $width;
+    }
   }
 }
